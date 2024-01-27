@@ -34,7 +34,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const images = ref<number[]>([15, 18, 29, 35])
 const count = ref<number>(0)
-const interval = ref<ReturnType<typeof setInterval>>(null)
+const interval = ref<ReturnType<typeof setInterval>>()
 
 const loopImages = () => {
   interval.value = setInterval(() => {

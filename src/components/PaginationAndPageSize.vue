@@ -56,7 +56,7 @@ const pageArr = computed(() => {
 })
 
 const handleSetCurrentPage = (num: number | string) => {
-  let nextPage
+  let nextPage: number
   if (typeof num !== 'number') {
     nextPage = Math.ceil((countPages.value - currentPage.value) / 2) + currentPage.value
   } else {
