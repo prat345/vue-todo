@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  @apply text-3xl text-slate-800 font-bold mb-3;
+}
+body {
+  @apply bg-stone-100;
+}
+input {
+  @apply ml-2 border border-slate-300 px-2 py-1 rounded-md !m-0;
+}
+.button,
+select {
+  @apply rounded-md px-3 py-1 shadow-md;
+}
+button.button:disabled {
+  opacity: 0.5;
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-10 py-6;
+  }
+}
+@layer utilities {
+}
