@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 
 interface FormData {
-  _id?: String
+  _id: string
   task: string
   date: string
   status: boolean
@@ -34,7 +34,7 @@ export const useTodoStore = defineStore('todo', () => {
     }
   }
 
-  const addNewTask = async (formData: FormData) => {
+  const addNewTask = async (formData: Partial<FormData>) => {
     try {
       const { data } = await axios.post(`http://localhost:5000/todo/add`, {
         formData: formData

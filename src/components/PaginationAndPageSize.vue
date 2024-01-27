@@ -50,12 +50,11 @@ const fetchTask = todoStore.fetchTask
 
 const currentPage = computed(() => todoStore.currentPage)
 const countPages = computed(() => todoStore.countPages)
-const pageArr = computed(() => {
-  // Array.from({ length: countPages.value }, (num, idx) => idx + 1)
+const pageArr = computed<(number | string)[]>(() => {
   return getPagination(currentPage.value, countPages.value)
 })
 
-const handleSetCurrentPage = (num: number | string) => {
+const handleSetCurrentPage = (num: number | string | undefined) => {
   let nextPage: number
   if (typeof num !== 'number') {
     nextPage = Math.ceil((countPages.value - currentPage.value) / 2) + currentPage.value

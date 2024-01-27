@@ -77,7 +77,7 @@ const handleSubmit = async () => {
   todoStore.addNewTask(formData.value)
   newTask.value = ''
   date.value = ''
-  status.value = null
+  status.value = false
   skills.value = []
 }
 </script>

@@ -7,7 +7,7 @@
       <div class="form-control flex justify-between">
         <div class="flex items-center gap-x-2 pl-4">
           <input @click="toggleSelectAll" class="bg-stone-200" type="checkbox" />
-          <span>{{ selectedTasks.length }}/{{ countTasks }}</span>
+          <span>{{ selectedTasks?.length }}/{{ countTasks }}</span>
         </div>
         <div class="flex items-center gap-x-2">
           <button
@@ -29,7 +29,7 @@
               type="checkbox"
               :value="task._id"
               v-model="selectedTasks"
-              :checked="selectedTasks.includes(task._id)"
+              :checked="selectedTasks?.includes(task._id)"
               class="col-span-1"
           /></span>
           <span class="col-span-2 text-lg">{{ task.task }}</span>
@@ -81,8 +81,8 @@ import NewTaskForm from '../components/NewTaskForm.vue'
 
 // const allTasks = ref([])
 
-const selectedTasks = ref([])
-const isSelectAll = ref(false)
+const selectedTasks = ref<string[] | undefined>([])
+const isSelectAll = ref<boolean>(false)
 
 const router = useRouter()
 const todoStore = useTodoStore()
@@ -99,7 +99,7 @@ const deleteTask = async (_id: string) => {
     fetchTask()
     console.log('deleted: ', data.task)
   } catch (err) {
-    console.log(err.message)
+    console.log((err as Error).message)
   }
 }
 
@@ -116,7 +116,7 @@ const deleteSelectedTask = async () => {
     selectedTasks.value = []
     console.log(`deleted ${data.result} tasks`)
   } catch (err) {
-    console.log(err.message)
+    console.log((err as Error).message)
   }
 }
 

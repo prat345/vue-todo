@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, type Ref } from 'vue'
+import { ref } from 'vue'
 import router from '../router'
 import { auth } from '../firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
@@ -8,8 +8,8 @@ interface ErrorCode extends Error {
   code: string
 }
 
-interface User {
-  email: string | null
+export interface User {
+  email?: string | null
   password?: string | null
 }
 

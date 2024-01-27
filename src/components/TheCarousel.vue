@@ -38,19 +38,16 @@ const interval = ref<ReturnType<typeof setInterval>>()
 
 const loopImages = () => {
   interval.value = setInterval(() => {
-    if (count.value < images.value.length - 1) {
-      count.value++
-    } else count.value = 0
+    next()
+    console.log(count.value)
   }, 5000)
 }
 
 const prev = () => {
-  if (count.value < 1) count.value = images.value.length - 1
-  else count.value--
+  count.value = (count.value - 1 + images.value.length) % images.value.length
 }
 const next = () => {
-  if (count.value >= images.value.length - 1) count.value = 0
-  else count.value++
+  count.value = (count.value + 1) % images.value.length
 }
 onMounted(loopImages)
 onBeforeUnmount(() => clearInterval(interval.value))

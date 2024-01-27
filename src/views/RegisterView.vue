@@ -21,9 +21,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useUserStore } from '../stores/user'
+import type { User } from '../stores/user'
 
-const loginForm = ref({})
-const registerForm = ref({})
+const loginForm = ref<Partial<User>>({})
+const registerForm = ref<Partial<User>>({})
 
 const userStore = useUserStore()
 </script>
