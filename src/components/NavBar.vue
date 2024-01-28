@@ -19,7 +19,7 @@
       </ul>
       <div class="ml-auto flex items-center justify-center gap-x-2">
         <label for=""> {{ isDark ? 'Night' : 'Day' }}</label>
-        <input-switch @change="toggleDark()" v-model="isDark" />
+        <input-switch @click="toggleDark" v-model="isDark" />
       </div>
     </nav>
   </div>
