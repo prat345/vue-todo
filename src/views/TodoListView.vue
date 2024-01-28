@@ -136,7 +136,7 @@ const selectedAllTask = () => {
   @apply mb-3;
 }
 li.task-list {
-  @apply mb-4 grid grid-cols-12 items-center bg-white px-4 py-6 shadow-md;
+  @apply mb-4 grid grid-cols-12 items-center border px-4 py-6 shadow-md;
 }
 .pills {
   @apply rounded-lg px-2 text-sm;

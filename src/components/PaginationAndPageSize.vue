@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="flex justify-between">
-      <select name="page-size" id="" @change="handleSetPageSize">
+      <select name="page-size" id="" @change="handleSetPageSize" class="text-black">
         <option value="3">3</option>
         <option value="5">5</option>
         <option value="7">7</option>
@@ -79,6 +79,9 @@ ul.pagination > li button {
 }
 ul.pagination > li button.active {
   @apply bg-black text-white;
+}
+.dark ul.pagination > li button.active {
+  @apply bg-white text-black;
 }
 button:disabled {
   @apply text-stone-300;

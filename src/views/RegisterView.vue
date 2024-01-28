@@ -31,81 +31,22 @@ const userStore = useUserStore()
 
 <style scoped>
 .forms {
-  display: flex;
-  min-height: 100vh;
+  @apply flex min-h-80 flex-wrap;
 }
 
 form {
   flex: 1 1 0%;
-  padding: 0 4rem;
+  padding: 4rem 0;
   @apply flex flex-col items-center justify-center gap-y-6;
 }
-
-form.register {
-  color: #fff;
-  background-color: #000;
-}
-
 h2 {
   font-size: 2rem;
   text-transform: uppercase;
 }
-
-input {
-  appearance: none;
-  border: none;
-  outline: none;
-  background: none;
-
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  padding: 0.5rem 0rem;
+.button {
+  @apply bg-black text-white;
 }
-
-input:not([type='submit']) {
-  opacity: 0.8;
-  transition: 0.4s;
-}
-
-input:focus:not([type='submit']) {
-  opacity: 1;
-}
-
-input::placeholder {
-  color: inherit;
-}
-
-form.register input:not([type='submit']) {
-  color: #fff;
-  border-bottom: 2px solid #fff;
-}
-
-form.login input:not([type='submit']) {
-  color: #2c3e50;
-  border-bottom: 2px solid #2c3e50;
-}
-
-form.login button {
-  background-color: #000;
-  color: #fff;
-  font-weight: 700;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-form.register button {
-  background-color: #fff;
-  color: #000;
-  font-weight: 700;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  text-transform: uppercase;
+.dark .button {
+  @apply bg-white text-black;
 }
 </style>

@@ -88,7 +88,7 @@ const handleSubmit = async () => {
   background-color: rgb(0, 0, 0, 0.7);
 }
 .modal {
-  @apply relative flex w-1/2 flex-col items-center justify-center rounded-lg bg-white p-10;
+  @apply relative flex w-1/2 flex-col items-center justify-center rounded-lg bg-white p-10 text-black;
   min-height: 300px;
 }
 

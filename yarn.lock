@@ -909,6 +909,11 @@
   resolved "https://registry.npmjs.org/@types/tough-cookie/-/tough-cookie-4.0.5.tgz"
   integrity sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==
 
+"@types/web-bluetooth@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.20.tgz#f066abfcd1cbe66267cdbbf0de010d8a41b41597"
+  integrity sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==
+
 "@typescript-eslint/eslint-plugin@^6.7.0":
   version "6.19.1"
   resolved "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-6.19.1.tgz"
@@ -1199,6 +1204,28 @@
   version "0.5.1"
   resolved "https://registry.npmjs.org/@vue/tsconfig/-/tsconfig-0.5.1.tgz"
   integrity sha512-VcZK7MvpjuTPx2w6blwnwZAu5/LgBUtejFOi3pPGQFXQN5Ela03FUtd2Qtg4yWGGissVL0dr6Ro1LfOFh+PCuQ==
+
+"@vueuse/core@^10.7.2":
+  version "10.7.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-10.7.2.tgz#78917803a29a0bca1803a6521fdf7ff873f6e72c"
+  integrity sha512-AOyAL2rK0By62Hm+iqQn6Rbu8bfmbgaIMXcE3TSr7BdQ42wnSFlwIdPjInO62onYsEMK/yDMU8C6oGfDAtZ2qQ==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.20"
+    "@vueuse/metadata" "10.7.2"
+    "@vueuse/shared" "10.7.2"
+    vue-demi ">=0.14.6"
+
+"@vueuse/metadata@10.7.2":
+  version "10.7.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.7.2.tgz#ba0187ce138c287fd80301afc5b0d6a97e563633"
+  integrity sha512-kCWPb4J2KGrwLtn1eJwaJD742u1k5h6v/St5wFe8Quih90+k2a0JP8BS4Zp34XUuJqS2AxFYMb1wjUL8HfhWsQ==
+
+"@vueuse/shared@10.7.2":
+  version "10.7.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-10.7.2.tgz#746441fbc08072371dd600a55883422c83fd0cab"
+  integrity sha512-qFbXoxS44pi2FkgFjPvF4h7c9oMDutpyBdcJdMYIMg9XyXli2meFMuaKn+UMgsClo//Th6+beeCgqweT/79BVA==
+  dependencies:
+    vue-demi ">=0.14.6"
 
 abbrev@^2.0.0:
   version "2.0.0"
@@ -2879,6 +2906,11 @@ pretty-format@^29.7.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
+primevue@^3.47.2:
+  version "3.47.2"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.47.2.tgz#0881b0d096e9ff58c5db893e3aa7a53e9f00cd17"
+  integrity sha512-/vgIhc2vxNW8amBGBJX/NMBgWi/THOwT0DIPgy/aswJ86x+uwLwGtjNz22c/uSE5UkHu4E5rpktWOJtFvTbRPg==
+
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.npmjs.org/proto-list/-/proto-list-1.2.4.tgz"
@@ -3477,7 +3509,7 @@ vue-component-type-helpers@^1.8.21:
   resolved "https://registry.npmjs.org/vue-component-type-helpers/-/vue-component-type-helpers-1.8.27.tgz"
   integrity sha512-0vOfAtI67UjeO1G6UiX5Kd76CqaQ67wrRZiOe7UAb9Jm6GzlUr/fC7CV90XfwapJRjpCMaZFhv1V0ajWRmE9Dg==
 
-vue-demi@>=0.14.5:
+vue-demi@>=0.14.5, vue-demi@>=0.14.6:
   version "0.14.6"
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.6.tgz"
   integrity sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==

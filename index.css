@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark body {
+  background-color: #252525;
+  color: #fff;
+}
 h1 {
-  @apply text-3xl text-slate-800 font-bold mb-3;
+  @apply mb-3 text-3xl font-bold;
 }
-body {
-  @apply bg-stone-100;
-}
+
 input {
-  @apply ml-2 border border-slate-300 px-2 py-1 rounded-md !m-0;
+  @apply !m-0 ml-2 rounded-md border border-slate-300 bg-transparent px-2 py-1;
 }
 .button,
 select {

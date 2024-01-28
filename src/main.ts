@@ -9,12 +9,18 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import App from './App.vue'
 import router from './router'
 
+import PrimeVue from 'primevue/config'
+import 'primevue/resources/themes/aura-light-green/theme.css'
+import InputSwitch from 'primevue/inputswitch'
+
 library.add(faPlus)
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+app.use(PrimeVue)
+app.component('InputSwitch', InputSwitch)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
 
