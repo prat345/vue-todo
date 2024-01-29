@@ -9,6 +9,7 @@ interface FormData {
   status: boolean
   skills: string[]
 }
+export const baseUrl = import.meta.env.VITE_SERVER_API
 
 export const useTodoStore = defineStore('todo', () => {
   const allTasks = ref<FormData[]>([])
@@ -24,7 +25,7 @@ export const useTodoStore = defineStore('todo', () => {
   const fetchTask = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/todo?page=${currentPage.value}&pageSize=${pageSize.value}`
+        `${baseUrl}/todo?page=${currentPage.value}&pageSize=${pageSize.value}`
       )
       allTasks.value = data.todos
       countTasks.value = data.countTasks
@@ -36,7 +37,7 @@ export const useTodoStore = defineStore('todo', () => {
 
   const addNewTask = async (formData: Partial<FormData>) => {
     try {
-      const { data } = await axios.post(`http://localhost:5000/todo/add`, {
+      const { data } = await axios.post(`${baseUrl}/todo/add`, {
         formData: formData
       })
       console.log('added: ', data)

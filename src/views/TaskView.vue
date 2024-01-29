@@ -78,6 +78,7 @@
 import { useRoute, useRouter } from 'vue-router'
 import { useTodoStore } from '../stores/todo'
 import { computed, onMounted, ref } from 'vue'
+import { baseUrl } from '../stores/todo'
 import axios from 'axios'
 
 const route = useRoute()
@@ -115,7 +116,7 @@ onMounted(fetchTask)
 const editTask = async (_id: string | undefined, task: string | undefined) => {
   try {
     // const newUpdateTask = newTask.value
-    const { data } = await axios.put(`http://localhost:5000/todo/update/${_id}`, {
+    const { data } = await axios.put(`${baseUrl}/todo/update/${_id}`, {
       formData: formData.value
     })
     fetchTask()
