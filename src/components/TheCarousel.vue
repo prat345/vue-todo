@@ -39,7 +39,6 @@ const interval = ref<ReturnType<typeof setInterval>>()
 const loopImages = () => {
   interval.value = setInterval(() => {
     next()
-    console.log(count.value)
   }, 5000)
 }
 
