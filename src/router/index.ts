@@ -36,20 +36,26 @@ const router = createRouter({
       name: 'profile',
       component: () => import('../views/ProfileView.vue'),
       meta: { title: 'profle', requiresAuth: true }
+    },
+    {
+      path: '/tran',
+      name: 'tran',
+      component: () => import('../views/OppDay.vue'),
+      meta: { title: 'Transcription', requiresAuth: true }
     }
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.path === '/register' && auth.currentUser) {
-    next('/profile')
-    return
-  }
-  if (to.matched.some((record) => record.meta.requiresAuth) && !auth.currentUser) {
-    next('/register')
-    return
-  }
-  next()
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.path === '/register' && auth.currentUser) {
+//     next('/profile')
+//     return
+//   }
+//   if (to.matched.some((record) => record.meta.requiresAuth) && !auth.currentUser) {
+//     next('/register')
+//     return
+//   }
+//   next()
+// })
 
 export default router
