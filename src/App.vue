@@ -6,7 +6,7 @@ import { onBeforeMount } from 'vue'
 import { useUserStore } from './stores/user'
 
 const userStore = useUserStore()
-
+// lorem ipsum
 onBeforeMount(() => {
   userStore.fetchUser()
 })
