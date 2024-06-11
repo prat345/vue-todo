@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { TableState, TableStateFilters } from 'ant-design-vue/es/table/interface'
+// import { TableState, TableStateFilters } from 'ant-design-vue/es/table/interface'
 import { usePagination } from 'vue-request'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import axios from 'axios'
 
 const columns = [
@@ -27,7 +27,7 @@ const columns = [
   }
 ]
 
-type Pagination = TableState['pagination']
+// type Pagination = TableState['pagination']
 type APIParams = {
   results: number
   page?: number
@@ -66,7 +66,7 @@ const pagination = computed(() => ({
   pageSize: pageSize.value
 }))
 
-const handleTableChange = (pag: Pagination, filters: TableStateFilters, sorter: any) => {
+const handleTableChange = (pag: any, filters: any, sorter: any) => {
   run({
     results: pag!.pageSize!,
     page: pag?.current,
@@ -81,7 +81,7 @@ const handleTableChange = (pag: Pagination, filters: TableStateFilters, sorter: 
   <section class="container px-6">
     <a-table
       :columns="columns"
-      :row-key="(record, idx) => idx"
+      :row-key="(_record: any, idx: any) => idx"
       :data-source="dataSource"
       :pagination="pagination"
       :loading="loading"
