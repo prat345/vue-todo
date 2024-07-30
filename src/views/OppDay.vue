@@ -1,25 +1,40 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import {
+  ref,
+  computed,
+  onMounted,
+  nextTick,
+  onBeforeUnmount,
+  onBeforeMount,
+  onDeactivated
+} from 'vue'
+import { useRoute } from 'vue-router'
+import { modifyUrlDisplay } from '../mixin'
 
 interface YTEvent {
   target: any
   data: number
 }
 
-onMounted(() => {
+nextTick(() => {
   initYoutube()
+  // query.value = modifyUrlDisplay(route)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('message', onMessage)
 })
+
 // youtube
+const route = useRoute()
 const duration = ref(0)
 const player1 = ref()
 const player2 = ref()
 let playerState = ref(0)
 let currentTime = ref(0)
 let time = ref(0)
+let query = computed(() => route.query)
+let params = computed(() => route.params)
 
 const ytConfigs = computed(() => ({
   height: '100%',
@@ -137,9 +152,46 @@ const triggerPlayer = () => {
     ? player1.value.pauseVideo()
     : player1.value.playVideo()
 }
+
+const encryptParams = (params) => {
+  return btoa(params)
+}
+
+// Function to modify the URL display
+// const modifyUrlDisplay = (route: any) => {
+//   if (route.query.en) {
+//     const bytes = CryptoJS.AES.decrypt(decodeURIComponent(route.query.en), 'kopkap')
+//     return JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+//   } else {
+//     const params = [...Object.values(route.query)].join('&') // Extract parameters
+//     // const encryptedParams = encryptParams(params) // Encrypt the parameters
+//     const encryptedParams = CryptoJS.AES.encrypt(JSON.stringify(route.query), 'kopkap').toString()
+//     const newUrl = `${window.location.origin + route.path}/?en=${encodeURIComponent(encryptedParams)}` // Create the new URL
+
+//     window.history.replaceState('', '', newUrl)
+
+//     return route.query
+//   }
+// }
 </script>
 
 <template>
+  <p>q:{{ query }}</p>
+  <p>p:{{ params }}</p>
+  <p>
+    <router-link
+      :to="{
+        name: 'tran',
+        params: {
+          vid: +params.vid + 1,
+          id: +params.id + 1,
+          type: +params.type + 1,
+          ref: params.ref
+        }
+      }"
+      >change route
+    </router-link>
+  </p>
   <main class="relative">
     <div class="mx-auto flex justify-center gap-4">
       <button @click.prevent="triggerPlayer" class="rounded bg-red-500">trigger</button>
@@ -147,13 +199,8 @@ const triggerPlayer = () => {
       <button @click.prevent="setTime" class="rounded bg-blue-500">set time</button>
     </div>
 
-    <div
-      ref="ytContainer"
-      class="intro-y !z-0 mt-3 rounded-md bg-[#212121] px-1 py-1 md:px-10 md:py-2"
-    >
-      <div class="mx-auto aspect-video max-w-[800px] overflow-hidden rounded-md">
-        <div id="yt-player1" loading="lazy"></div>
-      </div>
+    <div class="mx-auto aspect-video max-w-[800px] overflow-hidden rounded-md">
+      <div id="yt-player1" loading="lazy"></div>
     </div>
 
     <div class="mx-auto aspect-video max-w-[800px] overflow-hidden rounded-md">
